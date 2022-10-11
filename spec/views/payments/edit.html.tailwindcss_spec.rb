@@ -1,11 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "payments/edit", type: :view do
+  before(:all) do
+    @user = User.new(name: 'David', email: 'david@gmail.com', password: '123456', password_confirmation: '123456')
+    @user.skip_confirmation!
+    @user.save
+    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+  end
   let(:payment) {
     Payment.create!(
-      user: nil,
+      user: @user,
       name: "MyString",
-      amount: 1.5
+      amount: 1.5,
+      categories: [@category]
     )
   }
 

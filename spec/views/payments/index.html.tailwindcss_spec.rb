@@ -1,17 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe "payments/index", type: :view do
+  before(:all) do
+    @user = User.new(name: 'David', email: 'david@gmail.com', password: '123456', password_confirmation: '123456')
+    @user.skip_confirmation!
+    @user.save
+    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+  end
+
   before(:each) do
     assign(:payments, [
       Payment.create!(
-        user: nil,
+        user: @user,
         name: "Name",
-        amount: 2.5
+        amount: 2.5,
+        categories: [@category]
       ),
       Payment.create!(
-        user: nil,
+        user: @user,
         name: "Name",
-        amount: 2.5
+        amount: 2.5,
+        categories: [@category]
       )
     ])
   end
@@ -19,7 +28,6 @@ RSpec.describe "payments/index", type: :view do
   it "renders a list of payments" do
     render
     cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new(nil.to_s), count: 2
     assert_select cell_selector, text: Regexp.new("Name".to_s), count: 2
     assert_select cell_selector, text: Regexp.new(2.5.to_s), count: 2
   end
