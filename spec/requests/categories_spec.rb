@@ -17,13 +17,26 @@ RSpec.describe "/categories", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  before(:all) do
+    @user = User.new(name: 'David', email: 'david@gmail.com', password: '123456', password_confirmation: '123456')
+    @user.skip_confirmation!
+    @user.save
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+  let(:valid_attributes) do
+    {
+      user_id: @user.id,
+      name: 'Travel',
+      icon: 'https://www.flaticon.com/free-icon/travel_826070?term=travel&page=1&position=2&page=1&position=2&related_id=826070&origin=search'
+    }
+  end
+
+  let(:invalid_attributes) do {
+    user_id: nil,
+    name: nil,
+    icon: nil
   }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
