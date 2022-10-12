@@ -7,12 +7,7 @@ RSpec.describe Payment, type: :model do
   end
 
   subject {
-    Payment.create!(
-      user: @user,
-      name: "MyString",
-      amount: 1.5,
-      categories: [@category]
-    )
+    create(:payment, categories: [@category])
   }
 
   it 'should be valid with user, name, amount, and at least one category' do
