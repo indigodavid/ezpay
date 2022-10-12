@@ -18,9 +18,7 @@ RSpec.describe "/categories", type: :request do
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
   before(:all) do
-    @user = User.new(name: 'David', email: 'david@gmail.com', password: '123456', password_confirmation: '123456')
-    @user.skip_confirmation!
-    @user.save
+    @user = create(:user)
   end
 
   let(:valid_attributes) do

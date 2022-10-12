@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "payments/show", type: :view do
   before(:all) do
-    @user = User.new(name: 'David', email: 'david@gmail.com', password: '123456', password_confirmation: '123456')
-    @user.skip_confirmation!
-    @user.save
+    @user = create(:user)
     @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
   end
   before(:each) do

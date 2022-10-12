@@ -17,13 +17,40 @@ RSpec.describe "/payments", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Payment. As you add validations to Payment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  before(:all) do
+    @user = create(:user)
+    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+    @categories = [] 
+    @categories << @category
+  end
+
+  let(:valid_attributes) do
+    {
+      user_id: @user.id,
+      name: "MyString",
+      amount: 1.5,
+      categories: @categories
+    }
+  end
+
+  let(:invalid_attributes) do
+    {
+      user_id: nil,
+      name: nil,
+      amount: nil,
+      categories: @categories
+    }
+  end
+
+  let(:path_attributes) do
+    {
+      user_id: @user.id,
+      name: "MyString",
+      amount: 1.5,
+      categories: @categories.map {|c| {category_id: c.id, user_id: @user.id, name: c.name, icon: c.icon }}
+    }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -60,12 +87,12 @@ RSpec.describe "/payments", type: :request do
     context "with valid parameters" do
       it "creates a new Payment" do
         expect {
-          post payments_url, params: { payment: valid_attributes }
+          post payments_url, params: { payment: path_attributes }
         }.to change(Payment, :count).by(1)
       end
 
       it "redirects to the created payment" do
-        post payments_url, params: { payment: valid_attributes }
+        post payments_url, params: { payment: path_attributes }
         expect(response).to redirect_to(payment_url(Payment.last))
       end
     end
