@@ -20,7 +20,7 @@ RSpec.describe "/payments", type: :request do
 
   before(:all) do
     @user = create(:user)
-    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+    @category = create(:category)
     @categories = [] 
     @categories << @category
   end
@@ -87,12 +87,12 @@ RSpec.describe "/payments", type: :request do
     context "with valid parameters" do
       it "creates a new Payment" do
         expect {
-          post payments_url, params: { payment: path_attributes }
+          post payments_url, params: { payment: valid_attributes }
         }.to change(Payment, :count).by(1)
       end
 
       it "redirects to the created payment" do
-        post payments_url, params: { payment: path_attributes }
+        post payments_url, params: { payment: valid_attributes }
         expect(response).to redirect_to(payment_url(Payment.last))
       end
     end

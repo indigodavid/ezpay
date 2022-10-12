@@ -21,13 +21,7 @@ RSpec.describe "/categories", type: :request do
     @user = create(:user)
   end
 
-  let(:valid_attributes) do
-    {
-      user_id: @user.id,
-      name: 'Travel',
-      icon: 'https://www.flaticon.com/free-icon/travel_826070?term=travel&page=1&position=2&page=1&position=2&related_id=826070&origin=search'
-    }
-  end
+  let(:valid_attributes) { attributes_for(:category, user_id: @user.id) }
 
   let(:invalid_attributes) do {
     user_id: nil,

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Payment, type: :model do
   before(:all) do
     @user = create(:user)
-    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+    @category = create(:category, user: @user)
   end
 
   subject {

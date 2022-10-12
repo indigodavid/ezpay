@@ -6,11 +6,7 @@ RSpec.describe Category, type: :model do
   end
 
   subject {
-    Category.new(
-      user: @user,
-      name: "MyString",
-      icon: "MyString"
-    )
+    create(:category, user: @user)
   }
 
   it 'should be valid with user, name and icon' do
