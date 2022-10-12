@@ -4,16 +4,27 @@
 
 @layer base {
   body {
-    @apply font-light;
+    @apply font-light text-lead;
+  }
+
+  .logo-typ {
+    font-family: Pacifico, cursive;
   }
 }
 
 @layer components {
+  .btn {
+    @apply py-2 px-4 rounded font-normal text-center uppercase;
+  }
   .btn-primary {
-    @apply py-2 px-4 bg-cyan-600;
+    @apply bg-electric text-white;
   }
 
   .btn-danger {
-    @apply py-2 px-4 bg-red-500;
+    @apply bg-red-500 text-white;
+  }
+
+  .btn-confirm {
+    @apply bg-emerald text-white;
   }
 }

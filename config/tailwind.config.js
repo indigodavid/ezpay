@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'electric': '#3778c2',
+        'emerald': '#5fb523',
+        'lead': '#434b54',
+      },
     },
   },
   plugins: [
