@@ -94,14 +94,14 @@ RSpec.describe "/categories", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(:category, user_id: @user.id, icon: 'New icon')
       }
 
       it "updates the requested category" do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: new_attributes }
         category.reload
-        skip("Add assertions for updated state")
+        expect(category.icon).to eq 'New icon'
       end
 
       it "redirects to the category" do

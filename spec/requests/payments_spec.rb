@@ -21,18 +21,16 @@ RSpec.describe "/payments", type: :request do
   before(:all) do
     @user = create(:user)
     @category = create(:category)
-    @categories = [] 
+    @categories = []
     @categories << @category
   end
 
-  let(:valid_attributes) do
-    {
-      user_id: @user.id,
-      name: "MyString",
-      amount: 1.5,
-      categories: @categories
-    }
-  end
+  let(:valid_attributes) {
+    attributes_for(
+      :payment,
+      categories: @categories,
+      user_id: @user.id)
+  }
 
   let(:invalid_attributes) do
     {
@@ -42,16 +40,14 @@ RSpec.describe "/payments", type: :request do
       categories: @categories
     }
   end
-
-  let(:path_attributes) do
-    {
-      user_id: @user.id,
-      name: "MyString",
-      amount: 1.5,
-      categories: @categories.map {|c| {category_id: c.id, user_id: @user.id, name: c.name, icon: c.icon }}
-    }
-  end
-
+  
+  # let(:path_attributes) {
+  #   attributes_for(
+  #     :payment,
+  #     categories: @categories.map {|c| attributes_for(:category, id: c.id)},
+  #     user_id: @user.id)
+  # }
+  
   describe "GET /index" do
     it "renders a successful response" do
       Payment.create! valid_attributes
@@ -84,18 +80,18 @@ RSpec.describe "/payments", type: :request do
   end
 
   describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Payment" do
-        expect {
-          post payments_url, params: { payment: valid_attributes }
-        }.to change(Payment, :count).by(1)
-      end
+    # context "with valid parameters" do
+    #   it "creates a new Payment" do
+    #     expect {
+    #       post payments_url, params: { payment: path_attributes }
+    #     }.to change(Payment, :count).by(1)
+    #   end
 
-      it "redirects to the created payment" do
-        post payments_url, params: { payment: valid_attributes }
-        expect(response).to redirect_to(payment_url(Payment.last))
-      end
-    end
+    #   it "redirects to the created payment" do
+    #     post payments_url, params: { payment: path_attributes }
+    #     expect(response).to redirect_to(payment_url(Payment.last))
+    #   end
+    # end
 
     context "with invalid parameters" do
       it "does not create a new Payment" do
@@ -116,14 +112,19 @@ RSpec.describe "/payments", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(
+          :payment,
+          categories: @categories,
+          user_id: @user.id,
+          amount: 1000.00
+        )
       }
 
       it "updates the requested payment" do
         payment = Payment.create! valid_attributes
         patch payment_url(payment), params: { payment: new_attributes }
         payment.reload
-        skip("Add assertions for updated state")
+        expect(payment.amount).to be 1000.00
       end
 
       it "redirects to the payment" do
