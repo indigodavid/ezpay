@@ -1,26 +1,33 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_user
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = user.categories.includes(:payments)
     @title = 'Categories'
   end
 
   # GET /categories/1 or /categories/1.json
-  def show; end
+  def show
+    @title = @category.name
+  end
 
   # GET /categories/new
   def new
     @category = Category.new
+    @title = 'New Category'
   end
 
   # GET /categories/1/edit
-  def edit; end
+  def edit
+    @title = 'Edit Category'
+  end
 
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    @category.user = @user
 
     respond_to do |format|
       if @category.save
@@ -63,8 +70,12 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   # Only allow a list of trusted parameters through.
   def category_params
-    params.require(:category).permit(:user_id, :name, :icon)
+    params.require(:category).permit(:name, :icon)
   end
 end
