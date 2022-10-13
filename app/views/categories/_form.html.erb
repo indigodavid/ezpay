@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field group">
-    <%= form.text_field :name, class: "peer", placeholder: ' ' %>
+    <%= form.text_field :name, class: text_input_class, placeholder: ' ' %>
     <%= form.label :name, class: label_class %>
   </div>
 
   <div class="field group">
-    <%= form.text_field :icon, class: "peer", placeholder: ' ' %>
+    <%= form.text_field :icon, class: text_input_class, placeholder: ' ' %>
     <%= form.label :icon, class: label_class %>
   </div>
 
-  <div class="inline">
+  <div class="actions">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-electric text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
