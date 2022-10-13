@@ -74,6 +74,10 @@ class CategoriesController < ApplicationController
     @user = current_user
   end
 
+  def set_back_link
+    @back_link = categories_path
+  end
+
   # Only allow a list of trusted parameters through.
   def category_params
     params.require(:category).permit(:name, :icon)
