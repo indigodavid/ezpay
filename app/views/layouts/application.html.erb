@@ -19,7 +19,7 @@
     <% if user_signed_in? %>
       <%= render 'shared/navbar' %>
     <% end %>
-    <main class="container mx-auto flex flex-col">
+    <main class="container mx-auto h-screen flex flex-col">
       <% flash.each do |type, msg| %>
         <div class="box-alert <%= type %>" role="alert">
           <span class="font-medium capitalize"><%= type %>: </span><%= msg %>

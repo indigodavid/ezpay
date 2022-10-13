@@ -1,7 +1,7 @@
-<div class="container p-6 h-screen flex flex-col items-center justify-between">
-  <div class="container py-48 flex flex-col items-center gap-12">
+<div class="container p-6 flex flex-col flex-1 items-center justify-between">
+  <div class="container flex flex-col flex-grow items-center justify-center gap-12">
     <h1 class="text-4xl logo-typ">ezPay</h1>
-    <h3>A new way of handling your payments</h3>
+    <h3 class="text-center">A new way of handling your payments</h3>
   </div>
   <div class="container flex flex-col">
     <%= link_to 'Log in', new_user_session_path, class: 'btn btn-primary' %>
