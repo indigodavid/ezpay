@@ -37,7 +37,7 @@ gem 'cancancan'
 gem 'devise'
 
 # Font-Awesome for icons
-gem 'font-awesome-sass', '~> 6.2.0'
+# gem 'font-awesome-sass', '~> 6.2.0'
 
 # Rubocop for linters
 gem 'rubocop', '>= 1.0', '< 2.0'
