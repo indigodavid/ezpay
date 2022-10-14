@@ -21,8 +21,8 @@ RSpec.describe 'categories/index', type: :view do
 
   it 'renders a list of categories' do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
+    cell_selector = Rails::VERSION::STRING >= '7' ? 'a' : 'tr>td'
     assert_select cell_selector, text: Regexp.new('Name'.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new('Icon'.to_s), count: 2
+    assert_select 'i', class: Regexp.new('Icon'.to_s), count: 2
   end
 end

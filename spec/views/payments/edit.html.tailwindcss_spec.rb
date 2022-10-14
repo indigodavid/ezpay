@@ -4,6 +4,8 @@ RSpec.describe 'payments/edit', type: :view do
   before(:all) do
     @user = create(:user)
     @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+    @categories = []
+    @categories << @category
   end
   let(:payment) do
     Payment.create!(
@@ -22,7 +24,6 @@ RSpec.describe 'payments/edit', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', payment_path(payment), 'post' do
-      
       assert_select 'input[name=?]', 'payment[name]'
 
       assert_select 'input[name=?]', 'payment[amount]'

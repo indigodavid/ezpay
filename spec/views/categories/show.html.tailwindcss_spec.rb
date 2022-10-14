@@ -8,8 +8,10 @@ RSpec.describe 'categories/show', type: :view do
     assign(:category, Category.create!(
                         user: @user,
                         name: 'Name',
-                        icon: 'Icon'
+                        icon: 'Icon',
+                        payments: []
                       ))
+    assign(:payments, [])
   end
 
   it 'renders attributes in <p>' do

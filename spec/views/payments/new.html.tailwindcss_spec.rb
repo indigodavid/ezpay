@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'payments/new', type: :view do
+  before(:all) do
+    @user = create(:user)
+    @category = Category.create!(user: @user, name: 'Category', icon: 'icon')
+    @categories = []
+    @categories << @category
+  end
   before(:each) do
     assign(:payment, Payment.new(
                        user: nil,
@@ -13,7 +19,6 @@ RSpec.describe 'payments/new', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', payments_path, 'post' do
-      
       assert_select 'input[name=?]', 'payment[name]'
 
       assert_select 'input[name=?]', 'payment[amount]'
