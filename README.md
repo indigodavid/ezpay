@@ -19,7 +19,7 @@
 ## Live Demo
 
 [Live Demo Link](https://git.heroku.com/rocky-harbor-76582.git)
-
+[Video Demo](https://www.loom.com/share/72affb18229146c1ae25d8e3a8bfd8b0)
 
 ## Getting Started
 
