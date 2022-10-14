@@ -1,16 +1,17 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
   before_action :set_user
-
+  before_action :set_back_link
   # GET /categories or /categories.json
   def index
-    @categories = user.categories.includes(:payments)
+    @categories = Category.where(user: @user).order(created_at: :desc)
     @title = 'Categories'
   end
 
   # GET /categories/1 or /categories/1.json
   def show
     @title = @category.name
+    @payments = @category.payments
   end
 
   # GET /categories/new
