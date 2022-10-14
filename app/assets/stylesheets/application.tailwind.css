@@ -11,16 +11,12 @@
     font-family: Pacifico, cursive;
   }
 
-  form {
-    @apply mt-6;
-  }
-
   form .field {
     @apply relative z-0 mb-6 px-4 w-full;
   }
 
   nav {
-    @apply bg-gradient-to-tl from-electric-darker to-electric text-white;
+    @apply bg-gradient-to-tl mb-6 from-electric-darker to-electric text-white;
   }
 }
 
@@ -57,12 +53,12 @@
   }
 
   .actions {
-    @apply p-4 bg-emerald fixed bottom-0 w-full;
+    @apply w-screen p-4 bg-emerald fixed bottom-0 left-0;
   }
 
-  .actions > button,
-  .actions > input[type=submit],
-  .actions > a {
-    @apply py-3 uppercase w-full rounded border-2 border-white border-solid text-white;
+  .actions button,
+  .actions input[type=submit],
+  .actions a {
+    @apply py-3 uppercase w-full rounded border-2 border-white border-solid text-white text-base;
   }
 }

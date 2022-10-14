@@ -1,13 +1,13 @@
 <div class="w-full">
-  <div class="flex justify-between items-center">
-    <%= link_to 'New category', new_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
   <div id="categories" class="min-w-full">
     <% if @categories.count > 0 %>
       <%= render @categories %>
     <% else %>
       <h2>There are no categories registered.</h2>
     <% end %>
+  </div>
+
+  <div class="actions" data-turbo="true">
+    <%= button_to 'New category', new_category_path, method: :get  %>
   </div>
 </div>
