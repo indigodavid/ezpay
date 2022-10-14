@@ -46,12 +46,13 @@ To get a local copy up and running follow these simple example steps.
 
 1. You need to create a user to login into the application
 2. The main screen contains the categories you have created. You can create one in this first page.
-3. You can name your category to any string you may like. For the icon, the app loads it from [Fontawesome](https://fontawesome.com/search?o=r&m=free&s=solid&f=classic), you only need to insert the lowercase string with the name of the icon in the free solid library.
+3. You can name your category to any string you may like. For the icon, the app loads it from [Fontawesome](https://fontawesome.com/search?o=r&m=free&s=solid&f=classic), you only need to insert the lowercase string with the name of the icon in the free solid library. Examples of valid icons are `plane`, `gamepad`, `hamburger`, etc.
 4. Once you have a category you add payments. To do this you can clic on the category and there you may add a new payment.
 5. For the payments it is required a name and an amount. If you have more categories you may add as many as you want. Every payment must have at least one category.
 6. You can see your payments according to your categories. Enjoy!!
 ### Run tests
 
+    rspec --format documentation
 ### Deployment
 
 [Heroku](https://git.heroku.com/rocky-harbor-76582.git)
