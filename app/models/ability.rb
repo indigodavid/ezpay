@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
     #
-    can :read, Splash, :all
+
     return unless user.present?
 
     can :manage, Category, user: user
