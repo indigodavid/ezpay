@@ -28,7 +28,7 @@ RSpec.describe '/payments', type: :request do
   let(:valid_attributes) do
     attributes_for(
       :payment,
-      category_ids: @categories.map { |c| c.id },
+      category_ids: @categories.map(&:id),
       user_id: @user.id
     )
   end
