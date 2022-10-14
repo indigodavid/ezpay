@@ -6,9 +6,9 @@ RSpec.describe Payment, type: :model do
     @category = create(:category, user: @user)
   end
 
-  subject {
+  subject do
     create(:payment, categories: [@category])
-  }
+  end
 
   it 'should be valid with user, name, amount, and at least one category' do
     expect(subject).to be_valid

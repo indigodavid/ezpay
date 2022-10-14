@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "splash/index.html.tailwindcss", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe 'splash/index', type: :view do
+  it 'renders logo' do
+    render
+    expect(rendered).to match(/ezPay/)
+  end
 end

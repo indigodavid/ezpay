@@ -1,18 +1,19 @@
-<h2>Log in</h2>
+<% @title = 'Log in' %>
+<% @back_link = root_path %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field group">
+    <%= f.email_field :email, class: text_input_class, placeholder: ' ', autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: label_class %><br />
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="field group">
+    <%= f.password_field :password, class: text_input_class, placeholder: ' ', autocomplete: "current-password" %>
+    <%= f.label :password, class: label_class %><br />
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="field group">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>

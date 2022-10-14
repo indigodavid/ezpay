@@ -5,9 +5,9 @@ RSpec.describe Category, type: :model do
     @user = create(:user)
   end
 
-  subject {
+  subject do
     create(:category, user: @user)
-  }
+  end
 
   it 'should be valid with user, name and icon' do
     expect(subject).to be_valid
@@ -17,7 +17,7 @@ RSpec.describe Category, type: :model do
     subject.user = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'should not allow name to be empty' do
     subject.name = nil
     expect(subject).to_not be_valid

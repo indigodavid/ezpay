@@ -16,31 +16,43 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://git.heroku.com/rocky-harbor-76582.git)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- Ruby 3.1.2 or higher
+- Rails 7.0.4 
+- PostgreSQL
+- NPM
+- Updated Web browser
 ### Setup
+
+    git clone https://github.com/indigodavid/ezpay.git
+    cd ezpay/
 
 ### Install
 
+    bundle install
+    npm install
 ### Usage
 
+1. You need to create a user to login into the application
+2. The main screen contains the categories you have created. You can create one in this first page.
+3. You can name your category to any string you may like. For the icon, the app loads it from [Fontawesome](https://fontawesome.com/search?o=r&m=free&s=solid&f=classic), you only need to insert the lowercase string with the name of the icon in the free solid library.
+4. Once you have a category you add payments. To do this you can clic on the category and there you may add a new payment.
+5. For the payments it is required a name and an amount. If you have more categories you may add as many as you want. Every payment must have at least one category.
+6. You can see your payments according to your categories. Enjoy!!
 ### Run tests
 
 ### Deployment
 
-
-
+[Heroku](https://git.heroku.com/rocky-harbor-76582.git)
 ## Authors
 
 👤 **David Vera**
@@ -61,9 +73,11 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- My supportive family 😊
+- Microverse
 - Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Fontawesome
+- Flowbite
 
 ## 📝 License
 

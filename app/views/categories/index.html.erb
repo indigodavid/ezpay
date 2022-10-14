@@ -1,14 +1,13 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Categories</h1>
-    <%= link_to 'New category', new_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div id="categories" class="min-w-full">
+    <% if @categories.count > 0 %>
+      <%= render @categories %>
+    <% else %>
+      <h2>There are no categories registered.</h2>
+    <% end %>
   </div>
 
-  <div id="categories" class="min-w-full">
-    <%= render @categories %>
+  <div class="actions" data-turbo="true">
+    <%= button_to 'New category', new_category_path, method: :get  %>
   </div>
 </div>
