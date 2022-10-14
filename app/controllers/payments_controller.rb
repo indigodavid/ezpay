@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1 or /payments/1.json
   def show
     @title = @payment.name
-    @back_link = @category.nil? ? category_path(@category) : category_path(@payment.categories.last)
+    @back_link = @category.nil? ? category_path(@payment.categories.last) : category_path(@category)
   end
 
   # GET /payments/new
