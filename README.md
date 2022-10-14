@@ -4,7 +4,8 @@
 
 > This application uses Rails CRUD capabilities to allow users to categorize and add their transactions in a web UI. This project uses RoR as its we framework, Tailwind CSS for its styling, Devise for authentication and many other technologies.
 
-![smartmockups_l993qlef](https://user-images.githubusercontent.com/97900045/195956191-9bc19188-41ee-4137-bcba-45f2fa4b756f.jpg)
+<img src="https://user-images.githubusercontent.com/97900045/195956191-9bc19188-41ee-4137-bcba-45f2fa4b756f.jpg" alt="drawing" width="400"/>
+
 
 ## Built With
 
@@ -15,7 +16,7 @@
 - CanCanCan
 - Bullet
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://git.heroku.com/rocky-harbor-76582.git)
 
