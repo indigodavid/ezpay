@@ -42,7 +42,8 @@
   }
 
   .notice {
-    @apply text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800; }
+    @apply text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800;
+  }
 
   .alert {
     @apply text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800;
