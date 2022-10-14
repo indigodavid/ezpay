@@ -17,8 +17,9 @@ RSpec.describe '/payments', type: :request do
   # Payment. As you add validations to Payment, be sure to
   # adjust the attributes here as well.
 
-  before(:all) do
+  before(:each) do
     @user = create(:user)
+    sign_in @user
     @category = create(:category)
     @categories = []
     @categories << @category
@@ -27,7 +28,7 @@ RSpec.describe '/payments', type: :request do
   let(:valid_attributes) do
     attributes_for(
       :payment,
-      categories: @categories,
+      category_ids: @categories.map { |c| c.id },
       user_id: @user.id
     )
   end

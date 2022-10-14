@@ -16,8 +16,9 @@ RSpec.describe '/categories', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
-  before(:all) do
+  before(:each) do
     @user = create(:user)
+    sign_in @user
   end
 
   let(:valid_attributes) { attributes_for(:category, user_id: @user.id) }
