@@ -12,14 +12,23 @@
       <i class="fa-solid fa-bars fa-2x"></i>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:items-center md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <% if user_signed_in? %>
+          <li class="text-lead font-semibold">
+            Logged as <%= current_user.email %>
+          </li>
           <li>
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "menu-link" %>
+            <%= link_to 'Categories', categories_path, class: "menu-link" %>
+          </li>
+          <li>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "menu-link" %>
+          </li>
+          <li>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
           </li>
         <% else %>
           <li>
-            <%= button_to 'Sign in', new_user_session_path, class: "menu-link" %>
+            <%= button_to 'Sign in', new_user_session_path, class: "btn btn-confirm" %>
           </li>
           <li>
             <%= link_to 'Sign up', new_user_registration_path, class: "menu-link" %>
