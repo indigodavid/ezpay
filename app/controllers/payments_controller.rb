@@ -8,11 +8,13 @@ class PaymentsController < ApplicationController
     @payments = @category.payments
     @categories = Category.where(user: @user)
     @title = 'Payments'
+    @back_link = category_path(@category)
   end
 
   # GET /payments/1 or /payments/1.json
   def show
     @title = @payment.name
+    @back_link = @category.nil? ? category_path(@category) : category_path(@payment.categories.last)
   end
 
   # GET /payments/new
@@ -20,6 +22,7 @@ class PaymentsController < ApplicationController
     @title = 'New Payment'
     @payment = Payment.new
     @payment.categories << @category
+    @back_link = category_path(@category)
     @categories = Category.where(user: @user)
   end
 
