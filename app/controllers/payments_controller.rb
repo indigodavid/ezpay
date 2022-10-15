@@ -39,6 +39,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
     @payment.user = @user
     back_category = @payment.categories.last
+    @back_link = back_category.nil? ? categories_path : category_path(back_category)
     respond_to do |format|
       if @payment.save
         format.html { redirect_to category_url(back_category), notice: 'Payment was successfully created.' }
