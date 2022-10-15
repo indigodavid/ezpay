@@ -1,0 +1,14 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto min-w-full">
+    
+    <%= render @category %>
+
+    <div class="grid w-full place-items-center">
+      <%= link_to new_category_payment_path(@category), class: 'p-2 bg-emerald rounded text-center text-white' do %>
+        <i class="fa-solid fa-plus"></i><span class="ml-2">Create Payment</span>
+      <% end %>
+    </div>
+
+    <%= render @payments %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<% @title = "Edit #{resource_name.to_s.humanize}"%>
+<% @back_link = root_path %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field group">
+    <%= f.email_field :email, class: text_input_class, placeholder: ' ', autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: label_class %><br />
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field group">
+    <%= f.text_field :name, class: text_input_class, placeholder: ' ', autocomplete: "name" %>
+    <%= f.label :name, class: label_class %><br />
+  </div>
+
+  <div class="field group">
+    <%= f.password_field :password, class: text_input_class, placeholder: ' ', autocomplete: "new-password" %>
+    <%= f.label :password, class: label_class %> <i>(leave blank if you don't want to change it)</i><br />
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field group">
+    <%= f.password_field :password_confirmation, class: text_input_class, placeholder: ' ', autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, class: label_class %><br />
+  </div>
+
+  <div class="field group">
+    <%= f.password_field :current_password, class: text_input_class, placeholder: ' ', autocomplete: "current-password" %>
+    <%= f.label :current_password, class: label_class %> <i>(we need your current password to confirm your changes)</i><br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

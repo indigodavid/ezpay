@@ -1,0 +1,28 @@
+<div id="<%= dom_id payment %>" class="bg-white flex items-center shadow gap-4 m-4 p-4">
+  <div class="flex-grow">
+    <div class="my-2 flex justify-between items-end">
+      <span class="text-2xl">
+        <%= payment.name %>
+      </span>
+      <span>
+        <%= number_to_currency(payment.amount) %>
+      </span>
+    </div>
+    <div class="flex justify-end items-center w-full">
+      <span><%= payment.created_at.strftime('%Y-%m-%d') %></span>
+      <%= link_to 'Edit', edit_payment_path(payment), class: "rounded-lg p-3 ml-2 bg-gray-100 inline-block font-medium" %>
+      <% if action_name != "show" %>
+        <%= link_to "Show", payment, class: "rounded-lg p-5 bg-gray-100 inline-block font-medium" %>
+      <% else %>
+        <%= button_to 'Delete', payment_path(payment), method: :delete, class: "rounded-lg p-3 ml-2 btn-danger inline-block font-medium" %>
+      <% end %>
+    </div>
+    <div class="flex justify-center items-center w-full text-electric-darker">
+      <% payment.categories.each do |category| %>
+        <%= link_to category do %>
+          <i class="<%= icon_class_small(category.icon) %>"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

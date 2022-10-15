@@ -1,0 +1,33 @@
+<%= form_with(model: payment, class: "contents") do |form| %>
+
+  <% if payment.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+        <% payment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field group">
+    <%= form.text_field :name, class: text_input_class, placeholder: ' ' %>
+    <%= form.label :name, class: label_class %>
+  </div>
+
+  <div class="field group">
+    <%= form.text_field :amount, class: text_input_class, placeholder: ' ' %>
+    <%= form.label :amount, class: label_class %>
+  </div>
+
+  <div class="field group">
+    <%= form.label :category_ids, 'Categories' %>
+    <%= form.collection_check_boxes :category_ids, @categories, :id, :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "cursor-pointer" %>
+  </div>
+<% end %>

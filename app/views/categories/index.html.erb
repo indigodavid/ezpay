@@ -1,0 +1,13 @@
+<div class="w-full">
+  <div id="categories" class="min-w-full">
+    <% if @categories.count > 0 %>
+      <%= render @categories %>
+    <% else %>
+      <h2>There are no categories registered.</h2>
+    <% end %>
+  </div>
+
+  <div class="actions" data-turbo="true">
+    <%= button_to 'New category', new_category_path, method: :get  %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div id="<%= dom_id category %>" class="bg-white flex items-center shadow gap-4 m-4 p-4 last:mb-32">
+  <div class="bg-lead text-white rounded-full w-20 h-20 grid place-items-center">
+    <%= link_to category do %>
+      <i class="<%= icon_class(category.icon) %>" ></i>
+    <% end %>
+  </div>
+
+  <div class="flex-grow">
+    <div class="my-2 flex justify-between items-end">
+      <span class="text-2xl">
+        <%= link_to category do %>
+          <%= category.name %>
+        <% end %>
+      </span>
+      <span>
+        <%= number_to_currency(category.total_amount_of_payments) %>
+      </span>
+    </div>
+    <div class="flex justify-end items-center w-full">
+      <span><%= category.created_at.strftime('%Y-%m-%d') %></span>
+      <%= link_to 'Edit', edit_category_path(category), class: "rounded-lg p-3 ml-2 bg-gray-100 inline-block font-medium" %>
+      <% if action_name != "show" %>
+        <%= link_to "Show", category, class: "rounded-lg p-5 bg-gray-100 inline-block font-medium" %>
+      <% else %>
+        <%= button_to 'Delete', category_path(category), method: :delete, class: "rounded-lg p-3 ml-2 btn-danger inline-block font-medium" %>
+      <% end %>
+    </div>
+  </div>
+  
+</div>

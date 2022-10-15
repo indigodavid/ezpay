@@ -37,7 +37,7 @@ gem 'cancancan'
 gem 'devise'
 
 # Font-Awesome for icons
-gem 'font-awesome-sass', '~> 6.2.0'
+# gem 'font-awesome-sass', '~> 6.2.0'
 
 # Rubocop for linters
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -71,6 +71,7 @@ group :development, :test do
 
   # Database Cleaner for keeping the test database clean
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
@@ -91,5 +92,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   gem 'webdrivers'
 end

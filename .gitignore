@@ -36,3 +36,4 @@
 # Node Modules and .vscode
 node_modules/
 .vscode/
+coverage
