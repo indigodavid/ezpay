@@ -18,8 +18,8 @@
 
 ## Live Demo
 
-[Live Demo Link](https://git.heroku.com/rocky-harbor-76582.git)
-[Video Demo](https://www.loom.com/share/72affb18229146c1ae25d8e3a8bfd8b0)
+- [Live Demo Link](https://rocky-harbor-76582.herokuapp.com)
+- [Video Demo](https://www.loom.com/share/72affb18229146c1ae25d8e3a8bfd8b0)
 
 ## Getting Started
 
@@ -55,7 +55,7 @@ To get a local copy up and running follow these simple example steps.
     rspec --format documentation
 ### Deployment
 
-[Heroku](https://git.heroku.com/rocky-harbor-76582.git)
+[Heroku](https://rocky-harbor-76582.herokuapp.com)
 ## Authors
 
 👤 **David Vera**
