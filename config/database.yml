@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: ezpay_production
   username: ezpay
   password: <%= ENV["EZPAY_DATABASE_PASSWORD"] %>
