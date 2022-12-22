@@ -18,7 +18,7 @@
 
 ## Live Demo
 
-- [Live Demo Link](https://rocky-harbor-76582.herokuapp.com)
+- [Live Demo Link](https://ezpay-production.up.railway.app/)
 - [Video Demo](https://www.loom.com/share/72affb18229146c1ae25d8e3a8bfd8b0)
 
 ## Getting Started
@@ -55,7 +55,8 @@ To get a local copy up and running follow these simple example steps.
     rspec --format documentation
 ### Deployment
 
-[Heroku](https://rocky-harbor-76582.herokuapp.com)
+[Railway](https://ezpay-production.up.railway.app/)
+[Heroku (Not available)](https://rocky-harbor-76582.herokuapp.com)
 ## Authors
 
 👤 **David Vera**
